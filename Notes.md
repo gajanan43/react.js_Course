@@ -163,10 +163,12 @@ JS:
 
 # Props & PropsType:
 
+- props are read-only (immutable)
+
 ```
  default App function App() {
   return (
-    <Navbar title="MyApp"/> //Passing value title - Props
+    <Navbar title="MyApp" about="About Us" /> //Passing value title - Props
   );
 }
 
@@ -174,7 +176,33 @@ export default function Navbar(props) {  //Taking input as props
   return (
     <>
      <span className="navbar-brand">{props.title}</span>   //writing a props using js
+     <button className="nav-link btn btn-link text-white"> {props.about} </button>  // Wroking with multiple props
     </>
   )
 }
+```
+PropsType :
+```
+
+export default function Navbar({
+  title = 'Set Title Here',
+  about = 'Set About Here'
+}) {
+  return (
+        <span className="navbar-brand">{title}</span>
+        <button className="nav-link btn btn-link text-white">{about}</button>
+  )
+}
+
+
+Navbar.propTypes = {                        //Like a constraints
+  title: PropTypes.string.isRequired,
+  about: PropTypes.string.isRequired,
+}
+
+Navbar.defaultProps = {
+  title: 'Set Title Here',
+  about: 'Set About Here',
+}
+
 ```
