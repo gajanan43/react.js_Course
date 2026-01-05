@@ -206,3 +206,33 @@ Navbar.defaultProps = {
 }
 
 ```
+# State & Handling Events:
+```
+import { useState } from 'react'
+
+export default function (props) {
+
+    const handleUpClick = () => {
+        let newText = text.toUpperCase();
+        setText(newText);
+    }
+
+    const handleOnChange = (event) => {   //handling events
+        setText(event.target.value);
+    }
+ 
+    const [text, setText] = useState("Enter text here");  //Hooks-useState
+
+    return (
+        <div>
+            <h1 className='my-3'>{props.heading}</h1>
+            <div className="mb-3">
+                <label htmlFor="exampleFormControlTextarea1" className="form-label">Example textarea</label>
+                <textarea className="form-control" value={text} onChange={handleOnChange} id="exampleFormControlTextarea1" rows="8"></textarea>
+            </div>
+            <button className="btn btn-primary" onClick={handleUpClick}>Convert to UpperCase</button>
+        </div>
+    )
+}
+
+```
