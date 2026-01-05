@@ -160,3 +160,21 @@ JS:
     crossorigin="anonymous"></script>
 
 ```
+
+# Props & PropsType:
+
+```
+ default App function App() {
+  return (
+    <Navbar title="MyApp"/> //Passing value title - Props
+  );
+}
+
+export default function Navbar(props) {  //Taking input as props
+  return (
+    <>
+     <span className="navbar-brand">{props.title}</span>   //writing a props using js
+    </>
+  )
+}
+```
