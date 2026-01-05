@@ -3,6 +3,7 @@
 - `npm start`
 
 # App.js
+
 - return inside the app a jsx fromat
 ``` ex:
   
@@ -15,11 +16,136 @@ function App() {
 - JSX expressions must have one parent element
 
 - Wrap with a <div> (Most common)
+
+let name = "MyApp"
 function App() {
   return (
     <>
+      <h1>{name}</h1>
       <h1>Hello</h1>
       <h2>Hi </h2>
     </>
   );
-}```
+}
+
+- {} in JSX is used to write JavaScript expressions inside HTML.
+```
+---
+
+# Compilation Process
+
+**JSX is NOT understood by browsers directly.**
+So it goes through this pipeline:
+
+```
+JSX  →  Babel  →  JavaScript  →  Browser
+```
+
+---
+
+## 🧩 Step-by-Step JSX Compilation
+
+### 1️⃣ You Write JSX
+
+```jsx
+function App() {
+  return <h1>Hello</h1>;
+}
+```
+
+❌ Browser cannot run JSX
+✔ It must be converted to plain JavaScript
+
+---
+
+### 2️⃣ Babel Transpiles JSX
+
+Babel converts JSX into normal JavaScript.
+
+**JSX**
+
+```jsx
+<h1>Hello</h1>
+```
+
+**After Babel**
+
+```js
+React.createElement("h1", null, "Hello");
+```
+
+👉 This is valid JavaScript.
+
+---
+
+### 3️⃣ React Renders It
+
+* `React.createElement()` creates a **Virtual DOM object**
+* React compares it with previous DOM
+* Updates the **real DOM efficiently**
+
+---
+
+
+
+✔ This is what the browser actually executes
+
+---
+
+## ⚙️ Who Does the Compilation?
+
+### In Create React App (CRA)
+
+You **don’t configure anything manually**.
+
+CRA internally uses:
+
+* **Babel** → JSX → JS
+* **Webpack** → Bundling
+* **Dev Server** → Live reload
+
+📁 Hidden config:
+
+```
+node_modules/react-scripts/
+```
+
+---
+
+## 🧠 Interview-Friendly Explanation
+
+> “JSX is compiled by **Babel** into `React.createElement()` calls, which produce Virtual DOM objects that React uses to update the UI efficiently.”
+
+---
+
+## ❓ Why We Need JSX at All?
+
+Without JSX:
+
+```js
+React.createElement("h1", null, "Hello");
+```
+
+With JSX:
+
+```jsx
+<h1>Hello</h1>
+```
+
+✔ Cleaner
+✔ Readable
+✔ HTML-like syntax
+
+---
+
+## ⚠️ Important Rules (Must Remember)
+
+* JSX must have **one parent element**
+* `{}` allows **JavaScript expressions only**
+* JSX is **syntactic sugar**, not HTML
+
+---
+
+
+
+
