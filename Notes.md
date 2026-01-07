@@ -236,3 +236,23 @@ export default function (props) {
 }
 
 ```
+
+# Router Setup + Usage:
+
+```
+<Link to="/about" className={`nav-link btn btn-link text-${props.mode === 'light' ? 'dark' : 'light'}`}> About </Link>  //---------Linking Route1
+
+  <>
+      <Router>
+        <Navbar title="textUtils" mode={mode} toggleMode={toggleMode} />
+        <Alert alert={alert} />
+        <div className="container my-3">
+
+          <Routes> //--------------Routes
+            <Route exact path="/about"element={<AboutUs mode={mode} />}/>   //-----------------Route1
+            <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Enter text to analyze" mode={mode} />} />
+          </Routes>
+        </div>
+      </Router>
+    </>
+```
