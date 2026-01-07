@@ -4,4 +4,5 @@
 3) compilation process
 4) Bootstrap(CSS & JS)
 5) Props & PropType & Modules
-6) 
+6) State & Handling Events
+7) Router Setup + Usage
