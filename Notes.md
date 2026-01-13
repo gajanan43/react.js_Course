@@ -256,3 +256,24 @@ export default function (props) {
       </Router>
     </>
 ```
+
+# Hosting On Github:
+
+- `npm run build` is used for static website hosting
+1) Add homepage to package.json
+   
+``` "homepage": "https://myusername.github.io/my-app" ```
+
+2) Install gh-pages and add deploy to scripts in package.json
+  
+```  npm install --save gh-page
+
+   "scripts": 
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+```
+3) Deploy the site by running npm run deploy
+ `npm run deploy` 
+
