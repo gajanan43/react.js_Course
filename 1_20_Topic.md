@@ -6,3 +6,4 @@
 5) Props & PropType & Modules
 6) State & Handling Events
 7) Router Setup + Usage
+8) Hosting using Github
